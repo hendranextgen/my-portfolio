@@ -174,11 +174,11 @@
                         <form name="my-portfolio-contact-me">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" aria-describedby="name" name="name"/>
+                                <input type="text" class="form-control" id="name" aria-describedby="name" name="name" />
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="email" name="email"/>
+                                <input type="email" class="form-control" id="email" aria-describedby="email" name="email" />
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                             </div>
                             <div class="mb-3">
@@ -190,7 +190,7 @@
                             <button class="btn btn-primary btn-loading d-none" type="button" disabled>
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 Loading...
-                              </button>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -216,33 +216,33 @@
 
         <!-- FOR GOOGLE SHEET -->
         <script>
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxRXqypIBKnbMz-sGdlOrQdUZYhsLyHnCw4IvqZuEM-TSpOk7zzGlVTxSJNCo-pXFoy/exec';
-            const form = document.forms['my-portfolio-contact-me'];
-            const btnKirim = document.querySelector('.btn-kirim');
-            const btnLoading = document.querySelector('.btn-loading');
-            const alertBerhasil = document.querySelector('.alert-berhasil');
-          
-            form.addEventListener('submit', e => {
-              e.preventDefault();
-              // ketika tombol submit diklik
-              // tampilkan tombol loading, hilangkan tombol kirim
-              btnLoading.classList.toggle('d-none');
-              btnKirim.classList.toggle('d-none');
-              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => {
-                    // ketika berhasil
-                    // tampilkan tombol kirim, hilangkan tombol loading
-                    btnLoading.classList.toggle('d-none');
-                    btnKirim.classList.toggle('d-none');
-                    // tampilkan alert
-                    alertBerhasil.classList.toggle('d-none');
-                    // reset form
-                    form.reset();
-                    console.log('Success!', response);
-                })
-                .catch(error => console.error('Error!', error.message));
-            })
-          </script>
-          <!-- END FOR GOOGLE SHEET -->
+            const scriptURL = "https://script.google.com/macros/s/AKfycbxRXqypIBKnbMz-sGdlOrQdUZYhsLyHnCw4IvqZuEM-TSpOk7zzGlVTxSJNCo-pXFoy/exec";
+            const form = document.forms["my-portfolio-contact-me"];
+            const btnKirim = document.querySelector(".btn-kirim");
+            const btnLoading = document.querySelector(".btn-loading");
+            const alertBerhasil = document.querySelector(".alert-berhasil");
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                // ketika tombol submit diklik
+                // tampilkan tombol loading, hilangkan tombol kirim
+                btnLoading.classList.toggle("d-none");
+                btnKirim.classList.toggle("d-none");
+                fetch(scriptURL, { method: "POST", body: new FormData(form) })
+                    .then((response) => {
+                        // ketika berhasil
+                        // tampilkan tombol kirim, hilangkan tombol loading
+                        btnLoading.classList.toggle("d-none");
+                        btnKirim.classList.toggle("d-none");
+                        // tampilkan alert
+                        alertBerhasil.classList.toggle("d-none");
+                        // reset form
+                        form.reset();
+                        console.log("Success!", response);
+                    })
+                    .catch((error) => console.error("Error!", error.message));
+            });
+        </script>
+        <!-- END FOR GOOGLE SHEET -->
     </body>
 </html>
